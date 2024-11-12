@@ -1,0 +1,59 @@
+﻿@model ToDoApp.Models.TodoItem
+
+@{
+    ViewData["Title"] = "Create New Task";
+}
+
+<h1 class="text-center mt-4">@ViewData["Title"]</h1>
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-body">
+
+            <h5 class="card-title text-center">Task Details</h5>
+
+            <form asp-action="Create" method="post">
+                <div class="form-group mx-auto">
+                    <label asp-for="Title" class="control-label">Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Enter task title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-3 mx-auto">
+                    <label asp-for="Description" class="control-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" placeholder="Enter task description" rows="3"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-3 mx-auto">
+                    <label class="control-label">Priority: </label>
+                    <button type="button" class="btn btn-danger priority-button" onclick="setPriority('High')">High</button>
+                    <button type="button" class="btn btn-warning priority-button" onclick="setPriority('Medium')">Medium</button>
+                    <button type="button" class="btn btn-success priority-button" onclick="setPriority('Low')">Low</button>
+                </div>
+
+                <!-- Hidden input to store the priority value -->
+                <input type="hidden" id="Priority" name="Priority" />
+                <span asp-validation-for="Priority" class="text-danger"></span>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to handle the priority button click -->
+<script>
+    function setPriority(priority) {
+        document.getElementById("Priority").value = priority;
+
+        // Optionally, update button styles to show active state
+        const buttons = document.querySelectorAll(".priority-button");
+        buttons.forEach(button => button.classList.remove("active"));
+        
+        // Find the clicked button and add an "active" class
+        event.target.classList.add("active");
+    }
+</script>

@@ -1,0 +1,48 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* css for search bar */
+
+.display-4 {
+    font-weight: 700;
+    color: #343a40;
+}
+
+.input-group .form-control {
+    border-right: none;
+    
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.5rem 1.25rem;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+/* end of search bar css */
+
+.btn-group .priority-button .margin-right {
+    margin-right: 8px; /* Space between buttons */
+}
+
+.form-group {
+    max-width: 550px;
+}
+
+.search-bar-width {
+    max-width: 400px;
+}
